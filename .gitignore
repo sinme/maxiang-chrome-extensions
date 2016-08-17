@@ -1,0 +1,126 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+.editorconfig
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Dist Directory
+/dist
+
+# Node modules
+/node_modules
+
+# Bower
+#/bower_components
+
+# Bower components
+/src/components
+
+
+#==================分割线
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+# IDEA Ignores #
+################
+*.iml
+*.ipr
+*.iws
+.idea/
+local.properties
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# VCS #
+#######
+.svn
+.svn/
+CVS
+
+# Eclipse Ignores #
+###################
+.settings
+.buildpath
+.project
+.metadata
+
+# Misc #
+########
+*.log
+*.tmp
+*.swp
+*.bak
+*.pid
+*~
+tmp/
+temp/
+
+# project specific #
+####################
+/components
+/node_modules
+/output
+.npm
+.grunt
+test/html/
+
+/bower_components/*
+!/bower_components/mr-image/
+!/bower_components/angular-bootstrap/
+!/bower_components/rdash-ui/
+
