@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="../css/popup.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/NotebookSelector.css">
+  <link rel="stylesheet" href="../css/TagSelector.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<div id="main">
+  <div id="minimizeButton" class="useSvg minimiseSidebar"></div>
+  <div id="closeSidebar" class="useSvg"></div>
+  <textarea id="title" rows="1" tabindex="5" placeholder="修改md标题">笔记title</textarea>
+  <div class="green button pullButton" id="saveButton" message="saveToEvernote" tabindex="5">Pull</div>
+  <section id="clip">
+    <h1 message="quickNote">请选择保存内容</h1>
+    <h2 message="articleClip" class="html frameset custom" id="article"></h2>
+    <h2 message="clearly" class="html frameset" id="clearly"></h2>
+    <h2 class="custom" id="custom"></h2>
+    <h2 message="fullPageClip" class="html custom" id="fullPage"></h2>
+    <h2 message="pdfClip" class="pdf" id="pdf"></h2>
+    <h2 message="emailClip" class="email" id="email"></h2>
+    <h2 message="selectionClip" class="selection" id="selection"></h2>
+    <h2 message="urlClip" class="html pdf frameset custom" id="url"></h2>
+    <h2 message="screenshotClip" class="html email pdf frameset custom" id="screenshot"></h2>
+  </section>
+  <section id="annotate">
+    <h1 message="annotate">请选择保存内容</h1>
+    <div id="skitchToolsContainer">
+      <div class="skitchTool" id="highlighter"></div>
+
+      <div class="skitchTool expandable arrow" id="shapes" data-tool="arrow"></div>
+      <div class="skitchTool" id="marker"></div>
+      <div class="skitchTool" id="crop"></div>
+      <div class="skitchTool" id="zoomout"></div>
+      <div class="skitchTool expandable" id="stamps"></div>
+      <div class="skitchTool" id="text"></div>
+      <div class="skitchTool" id="pixelate"></div>
+      <div class="skitchTool expandable" id="colors"></div>
+      <div class="skitchTool" id="zoomin"></div>
+      <div class="subtools" id="shapesSubtools">
+        <div class="subtool" id="arrow"></div>
+        <div class="subtool" id="rectangle"></div>
+        <div class="subtool" id="roundedRectangle"></div>
+        <div class="subtool" id="ellipse"></div>
+        <div class="subtool" id="line"></div>
+      </div>
+      <div class="subtools" id="stampsSubtools">
+        <div class="subtool" id="stampAccept"></div><!--
+            -->
+        <div class="subtool" id="stampReject"></div><!--
+            -->
+        <div class="subtool" id="stampExclaim"></div><!--
+            -->
+        <div class="subtool" id="stampQuestion"></div><!--
+            -->
+        <div class="subtool" id="stampPerfect"></div>
+      </div>
+      <div class="subtools" id="colorsSubtools">
+        <div class="subtool" id="red"></div><!--
+            -->
+        <div class="subtool" id="orange"></div><!--
+            -->
+        <div class="subtool" id="yellow"></div><!--
+            -->
+        <div class="subtool" id="black"></div><!--
+            -->
+        <div class="subtool" id="green"></div><!--
+            -->
+        <div class="subtool" id="blue"></div><!--
+            -->
+        <div class="subtool" id="pink"></div><!--
+            -->
+        <div class="subtool" id="white"></div>
+      </div>
+    </div>
+  </section>
+  <div class="gray button" id="cancelScreenshot" message="regForm_cancel"></div>
+  <section id="organize">
+    <h1 message="organize">Push至</h1>
+
+    <div id="notebook" class="selectGitHubs nbContainer nbOpen" style="display: none">
+        <div class="nbGlobalErrorBlock">
+          <div class="globalErrorBlockInfo"></div>
+        </div>
+        <div class="nbSelected" title="css揭秘" guid="76d541c1-7871-4d3b-94cf-c9c65711d81b">css揭秘</div>
+        <div class="nbDropdown">
+          <div><input class="nbSearchInput" placeholder="查找笔记本" tabindex="2">
+            <div class="notebooksErrorBlock hide"><span></span></div>
+            <div class="nbAddNotebookBlock"><input class="nbCreateNewNotebookInput useSvg" placeholder="创建新笔记本">
+              <div class="nbCreateNewNotebookElementsBlock hide">
+                <div class="nbCreateNewNotebookRadioBlock useSvg hide"><input id="createNewNotebookRadioBlock"
+                                                                              type="radio" name="notebookType"
+                                                                              value="personal" checked="checked"
+                                                                              class="nbCreateNewNotebookRadio"><label
+                  for="createNewNotebookRadioBlock">私人</label><input id="createNewNotebookRadioBusiness" type="radio"
+                                                                     name="notebookType" value="business"
+                                                                     class="nbCreateNewNotebookRadio"><label
+                  for="createNewNotebookRadioBusiness">企业</label></div>
+                <div class="nbCreateNewNotebookButtons">
+                  <button class="nbCreateNewNotebookCancelButton">取消</button>
+                  <button class="nbCreateNewNotebookCreateButton">创建</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nbList">
+            <div class="nbStack"><h3 title="2016.7.5">2016.7.5</h3>
+              <div class="nbNotebook" title="0_11.10-11.22" guid="317723cc-0be0-447b-93f1-5290ea5ad076"><span>0_11.10-11.22</span>
+              </div>
+              <div class="nbNotebook" title="0_cdn" guid="5649ef79-9da4-44ab-8982-335845114b4c"><span>0_cdn</span></div>
+              <div class="nbNotebook" title="0_cloud_storage" guid="e36df346-75a7-4129-b8c8-b61e81a20324"><span>0_cloud_storage</span>
+              </div>
+              <div class="nbNotebook" title="0_CRI" guid="f771e189-9ee5-4706-a7f2-e27b505ab281"><span>0_CRI</span></div>
+              <div class="nbNotebook" title="100" guid="1142b2c4-7c34-414b-be1d-f7daca6923a3"><span>100</span></div>
+              <div class="nbNotebook" title="100(7.5~10.12)" guid="61a6039b-56ac-4250-83ee-e3895b091f42"><span>100(7.5~10.12)</span>
+              </div>
+              <div class="nbNotebook" title="2016" guid="48f21e2d-b9c1-4559-951f-544348953e77"><span>2016</span></div>
+              <div class="nbNotebook" title="2016.4.30~2017.5.31" guid="c4a2c770-9c7c-4e0d-b12c-8bc73f58700d"><span>2016.4.30~2017.5.31</span>
+              </div>
+              <div class="nbNotebook" title="About me" guid="c97457c4-f57e-44d4-878f-6a704f5357a4"><span>About me</span>
+              </div>
+              <div class="nbNotebook" title="dairy(0909~)" guid="2f1e734a-f02a-4b9a-aad6-852e6a011aac"><span>dairy(0909~)</span>
+              </div>
+              <div class="nbNotebook" title="interview" guid="ae31aebc-4f51-4ff7-a954-6121d314ad75">
+                <span>interview</span></div>
+              <div class="nbNotebook" title="keep" guid="a702f0cc-9b57-471b-bf02-5df1ee2186ed"><span>keep</span></div>
+              <div class="nbNotebook" title="memo" guid="5e2ff345-5c51-4481-a151-498b0a456db3"><span>memo</span></div>
+              <div class="nbNotebook" title="my_software" guid="d40df26a-de5a-4d08-87b2-8380e1995403">
+                <span>my_software</span></div>
+              <div class="nbNotebook" title="my_tools" guid="0859c4ff-d89b-46ed-9b1e-7830e7075dbe"><span>my_tools</span>
+              </div>
+              <div class="nbNotebook" title="old.evernote.liguwe.com" guid="b4ed4350-f857-4147-bbda-97df5afb90ac"><span>old.evernote.liguwe.com</span>
+              </div>
+              <div class="nbNotebook" title="old.liguwe.com" guid="51e71e87-5121-4208-8e82-445722735322"><span>old.liguwe.com</span>
+              </div>
+              <div class="nbNotebook" title="scap" guid="c60837e2-910d-42a1-99bb-862314fd5f28"><span>scap</span></div>
+              <div class="nbNotebook" title="skitch" guid="38a662eb-378e-46a6-ad36-2375ac117e4e"><span>skitch</span>
+              </div>
+              <div class="nbNotebook" title="task" guid="9a21cf17-9d83-4a46-80eb-24d239ab367f"><span>task</span></div>
+              <div class="nbNotebook" title="印象笔记·圈点" guid="3b2a8af1-4959-48be-84e8-857435082b78"><span>印象笔记·圈点</span>
+              </div>
+              <div class="nbNotebook" title="墨笔" guid="4b73628c-7ab4-4673-ae97-39954c02b487"><span>墨笔</span></div>
+              <div class="nbNotebook" title="游泳" guid="383ca6ff-453e-4a26-863d-774286b3ca25"><span>游泳</span></div>
+              <div class="nbNotebook" title="知乎" guid="03d0b2c6-b90a-4669-9713-862a1fc1d556"><span>知乎</span></div>
+              <div class="nbNotebook" title="账单" guid="fd11f4a1-e1c9-4aa0-a61a-49d7e81dbe48"><span>账单</span></div>
+              <div class="nbNotebook" title="面试准备" guid="0525abb0-074f-4953-a436-3082039d07bc"><span>面试准备</span></div>
+            </div>
+            <div class="nbStack"><h3 title="Baidu-Game">Baidu-Game</h3>
+              <div class="nbNotebook" title="Baidu-Mgame" guid="c2eb3c71-cea9-443d-9ec1-c97d18a62d6a">
+                <span>Baidu-Mgame</span></div>
+              <div class="nbNotebook" title="单机整合项目（单机整合至网游）" guid="a13f97fd-bb19-464c-bdd7-65b26695f2c7"><span>单机整合项目（单机整合至网游）</span>
+              </div>
+              <div class="nbNotebook" title="发号中心二期淘号" guid="60a56201-cd05-4110-8bbb-d62b34bcc402"><span>发号中心二期淘号</span>
+              </div>
+              <div class="nbNotebook" title="异形广告后台" guid="0e0519fd-dcc5-4e80-812b-1e1b3fc93543"><span>异形广告后台</span>
+              </div>
+              <div class="nbNotebook" title="百度移动游戏4.29之前的项目" guid="67b1c4ae-a4e8-4455-9bca-64ea3304d90e"><span>百度移动游戏4.29之前的项目</span>
+              </div>
+              <div class="nbNotebook" title="首页弹窗与封测模块" guid="2d6d09cb-8cb9-470f-8f36-145ef848587c">
+                <span>首页弹窗与封测模块</span></div>
+            </div>
+            <div class="nbStack"><h3 title="CS&amp;DB">CS&amp;DB</h3>
+              <div class="nbNotebook" title="C++ Primer Plus" guid="3bf36531-bf51-4719-812f-893540a3a7af"><span>C++ Primer Plus</span>
+              </div>
+              <div class="nbNotebook" title="HTTP权威指南" guid="4a658c85-5850-456a-89e2-7fadbf9f4c65"><span>HTTP权威指南</span>
+              </div>
+              <div class="nbNotebook" title="Jekyll 小书" guid="93291fa0-fec5-457a-809b-c5aa281cf970">
+                <span>Jekyll 小书</span></div>
+              <div class="nbNotebook" title="MongoDB权威指南" guid="758cad3f-7774-4c32-85ae-bc6e0c13a1c4">
+                <span>MongoDB权威指南</span></div>
+              <div class="nbNotebook" title="PHP" guid="3d6ae554-6234-465a-aa81-ca88db9a13eb"><span>PHP</span></div>
+              <div class="nbNotebook" title="PHP编程" guid="4cb19b54-5013-4756-9365-d9c7aec6b5cb"><span>PHP编程</span></div>
+              <div class="nbNotebook" title="Redis" guid="752549b0-d482-4f63-a352-4261add714b8"><span>Redis</span></div>
+              <div class="nbNotebook" title="图解HTTP" guid="7858f189-7144-4f37-93e0-dfe3ade7697a"><span>图解HTTP</span>
+              </div>
+              <div class="nbNotebook" title="算法的乐趣" guid="ab6df53b-88d8-4d85-98c8-711f13f752bd"><span>算法的乐趣</span></div>
+              <div class="nbNotebook" title="计算机是怎么跑起来" guid="3aa68a99-88de-494a-b645-c4146b846662">
+                <span>计算机是怎么跑起来</span></div>
+            </div>
+            <div class="nbNotebook" title="Default noteBook" guid="e9c8c91c-beef-4694-a219-73bdc66ce536" default="">
+              <span>Default noteBook</span></div>
+            <div class="nbStack"><h3 title="English">English</h3>
+              <div class="nbNotebook" title="GMAT" guid="c40d7631-9d8a-441d-8b07-12f7715e1463"><span>GMAT</span></div>
+              <div class="nbNotebook" title="toefl" guid="c5765d1d-0171-41a9-8c0f-244628c9a497"><span>toefl</span></div>
+              <div class="nbNotebook" title="TOEFL词汇(新东方乱序版）" guid="edcca994-83ff-454e-8602-2e1a553abe14"><span>TOEFL词汇(新东方乱序版）</span>
+              </div>
+              <div class="nbNotebook" title="美语音标" guid="c72a361f-a247-4cef-ba15-08f4da3a1ded"><span>美语音标</span></div>
+            </div>
+            <div class="nbStack"><h3 title="Front-end">Front-end</h3>
+              <div class="nbNotebook" title="About Javescript" guid="21401410-c134-42bb-aefb-e19404571440"><span>About Javescript</span>
+              </div>
+              <div class="nbNotebook" title="AngularJS实战" guid="140dec29-8c77-405b-9a86-6dad71a0f0cc">
+                <span>AngularJS实战</span></div>
+              <div class="nbNotebook" title="AngularJs深入剖析与最佳实践" guid="b6111f00-c6cd-4845-9621-e713c6d45469"><span>AngularJs深入剖析与最佳实践</span>
+              </div>
+              <div class="nbNotebook" title="BOM" guid="71a8fa98-c8a1-433b-bb7d-292364fe00ef"><span>BOM</span></div>
+              <div class="nbNotebook" title="bower&amp;Emmet" guid="0cf58ff6-e7ce-4c46-a2b5-e081407b7878"><span>bower&amp;Emmet</span>
+              </div>
+              <div class="nbNotebook" title="Chrome Debugger" guid="990baaa9-d5ad-48ba-b403-63c3ca9659cf"><span>Chrome Debugger</span>
+              </div>
+              <div class="nbNotebook nbHover" title="chrome devtools" guid="613cc381-8366-4a23-96bd-5cb7e00c5b6d"><span>chrome devtools</span>
+              </div>
+              <div class="nbNotebook" title="chrome-extensions" guid="d8d5dec8-7830-4f54-b084-bc6e1e2c4d41"><span>chrome-extensions</span>
+              </div>
+              <div class="nbNotebook" title="Core Object" guid="54ecec5f-e0fb-4174-86cc-ce11f53819b5">
+                <span>Core Object</span></div>
+              <div class="nbNotebook" title="Core Syntax" guid="83202628-59d7-407c-9898-c9800d4a5273">
+                <span>Core Syntax</span></div>
+              <div class="nbNotebook" title="CSS Docs" guid="ff52c5a4-3a47-432e-a13a-b8706df8ca9a"><span>CSS Docs</span>
+              </div>
+              <div class="nbNotebook" title="css3秘籍" guid="0b081bb9-7f96-4b04-8219-d2dbe181979c"><span>css3秘籍</span>
+              </div>
+              <div class="nbNotebook nbSelectedNotebook" title="css揭秘" guid="76d541c1-7871-4d3b-94cf-c9c65711d81b">
+                <span>css揭秘</span></div>
+              <div class="nbNotebook" title="DOM" guid="84f836d2-89ba-4b44-b68d-3b3e5f13bb4a"><span>DOM</span></div>
+              <div class="nbNotebook" title="DOM HTML" guid="ff76636e-aafe-4090-8629-0897269ec0da"><span>DOM HTML</span>
+              </div>
+              <div class="nbNotebook" title="DOM Node" guid="9278e385-b1c1-450d-86c7-483b8da8a284"><span>DOM Node</span>
+              </div>
+              <div class="nbNotebook" title="ES6" guid="48abe381-b0bc-4e75-98eb-1a5d4464f9f9"><span>ES6</span></div>
+              <div class="nbNotebook" title="Event" guid="951a3cc0-87c5-49fa-8c63-179f79833fdf"><span>Event</span></div>
+              <div class="nbNotebook" title="Express" guid="4302816f-4e8a-46ae-ad86-1f81ef72d262"><span>Express</span>
+              </div>
+              <div class="nbNotebook" title="Function" guid="d63f4295-e5e5-430d-a9d6-ef2c955ebf58"><span>Function</span>
+              </div>
+              <div class="nbNotebook" title="Gulp&amp;Grunt" guid="0f06ed2c-3ca7-4b8b-b2ee-512c66593b78"><span>Gulp&amp;Grunt</span>
+              </div>
+              <div class="nbNotebook" title="HTML5 APIs" guid="1572b865-ce22-4132-ba50-46b4458305a7">
+                <span>HTML5 APIs</span></div>
+              <div class="nbNotebook" title="HTML5 Canvas 开发详解" guid="1e5c7dfd-af01-4997-9323-b84d75d952e9"><span>HTML5 Canvas 开发详解</span>
+              </div>
+              <div class="nbNotebook" title="HTML5与WebGL" guid="dba083ae-8a87-4804-91e4-7b9dde81977b">
+                <span>HTML5与WebGL</span></div>
+              <div class="nbNotebook" title="HTML5秘籍（第2版）" guid="66867b5f-cbf9-4c4f-9a82-c8f8897938c5"><span>HTML5秘籍（第2版）</span>
+              </div>
+              <div class="nbNotebook" title="javascript Design Patterns" guid="5b36c026-de30-4135-ab31-aea9a26e2829">
+                <span>javascript Design Patterns</span></div>
+              <div class="nbNotebook" title="javascript Patterns" guid="594da971-7ee7-4298-ab4f-19d6be173433"><span>javascript Patterns</span>
+              </div>
+              <div class="nbNotebook" title="Javascript兼容篇" guid="bcc16e38-a4be-4519-a46b-476ceb36aea4"><span>Javascript兼容篇</span>
+              </div>
+              <div class="nbNotebook" title="JavaScript忍者秘籍" guid="4ad1eee6-4360-405a-826f-f8e69f49c697"><span>JavaScript忍者秘籍</span>
+              </div>
+              <div class="nbNotebook" title="javascript性能优化" guid="c8206407-34f2-49f8-98d7-692879327fab"><span>javascript性能优化</span>
+              </div>
+              <div class="nbNotebook" title="javascript数据结构与算法" guid="198bcb22-4ab5-415f-88ed-54e8611cbb93"><span>javascript数据结构与算法</span>
+              </div>
+              <div class="nbNotebook" title="javascript框架设计" guid="5752acbd-db50-4224-a2af-fda1e08a9c4a"><span>javascript框架设计</span>
+              </div>
+              <div class="nbNotebook" title="Javascript知识点随记" guid="0fbcb850-3b1c-4390-95fe-6c3b9ae8e496"><span>Javascript知识点随记</span>
+              </div>
+              <div class="nbNotebook" title="JavaScript设计模式(张容铭)" guid="55aee6e5-2fe3-44a6-b9e0-9806ca2b06c8"><span>JavaScript设计模式(张容铭)</span>
+              </div>
+              <div class="nbNotebook" title="javascript设计模式与开发实践" guid="653e6fda-b6a8-4670-aaba-77086f14a53c"><span>javascript设计模式与开发实践</span>
+              </div>
+              <div class="nbNotebook" title="jello" guid="dfb4c271-4f73-48e8-a8c0-89aa3ad9cfd1"><span>jello</span></div>
+              <div class="nbNotebook" title="JS Docs" guid="7654bb6a-a1e8-4476-8490-ceccb92d71b6"><span>JS Docs</span>
+              </div>
+              <div class="nbNotebook" title="JSON必知必会" guid="cc2678ea-261a-4436-b1c5-3f3637f5501f"><span>JSON必知必会</span>
+              </div>
+              <div class="nbNotebook" title="MEAN" guid="1f570c1e-ebc7-48ef-a8e9-e6f8c1684a2c"><span>MEAN</span></div>
+              <div class="nbNotebook" title="ng-book-2" guid="71f2f309-76bf-478e-994c-77ff3a926002">
+                <span>ng-book-2</span></div>
+              <div class="nbNotebook" title="Node.js 实战" guid="efe75a09-f24c-49ec-befe-dba2f0e57522">
+                <span>Node.js 实战</span></div>
+              <div class="nbNotebook" title="Nodejs 权威指南" guid="8f5e4e82-a981-45df-aa9f-703386e4fc62">
+                <span>Nodejs 权威指南</span></div>
+              <div class="nbNotebook" title="Object-Oriented" guid="2caf333e-9abd-49e9-8aae-760d2acba2f5"><span>Object-Oriented</span>
+              </div>
+              <div class="nbNotebook" title="React Native开发指南" guid="7e02b699-2de9-47c1-8fcb-1739a28b772c"><span>React Native开发指南</span>
+              </div>
+              <div class="nbNotebook" title="React Native开发指南 1" guid="9effbb89-beeb-492b-b3ac-cdc5aa6da2b4"><span>React Native开发指南 1</span>
+              </div>
+              <div class="nbNotebook" title="Sass与Compass实战" guid="0915acc8-d116-4e9c-bd52-aa0f48221030"><span>Sass与Compass实战</span>
+              </div>
+              <div class="nbNotebook" title="Scripted HTTP" guid="c4b3751b-62f4-4da7-9296-17fd330bb531"><span>Scripted HTTP</span>
+              </div>
+              <div class="nbNotebook" title="SVG精髓（第2版）" guid="1c8b6fb6-c759-449c-b5e2-8388b2265065">
+                <span>SVG精髓（第2版）</span></div>
+              <div class="nbNotebook" title="TypeScript" guid="63b7435d-2a41-40b8-bd80-1fb57f3aee53">
+                <span>TypeScript</span></div>
+              <div class="nbNotebook" title="webGl编程指南" guid="c8b96eeb-0e99-43e8-94b6-8129d818f63d">
+                <span>webGl编程指南</span></div>
+              <div class="nbNotebook" title="webpack&amp;gulp&amp;grunt&amp;fis3"
+                   guid="0eeea142-b6c8-413c-b54a-a382a9735fac"><span>webpack&amp;gulp&amp;grunt&amp;fis3</span></div>
+              <div class="nbNotebook" title="Web应用安全权威指南" guid="ea654eac-5049-4ce0-b53c-2e51c676f625">
+                <span>Web应用安全权威指南</span></div>
+              <div class="nbNotebook" title="web性能实践日志" guid="f2033d4c-3bd6-4850-9666-def4a3738ca2">
+                <span>web性能实践日志</span></div>
+              <div class="nbNotebook" title="Web性能权威指南" guid="44118c33-1857-41d7-9d4e-43b890486380">
+                <span>Web性能权威指南</span></div>
+              <div class="nbNotebook" title="You-Dont-Know-JS" guid="b7aa190e-7424-43d9-b610-87ddb6bb4bbd"><span>You-Dont-Know-JS</span>
+              </div>
+              <div class="nbNotebook" title="作用域与this详解" guid="bb3bc1aa-879e-475f-a5b2-2d248b279f08">
+                <span>作用域与this详解</span></div>
+              <div class="nbNotebook" title="移动web手册" guid="139df24f-109a-4021-8c0e-8526678b08b7"><span>移动web手册</span>
+              </div>
+              <div class="nbNotebook" title="移动端(切图)" guid="395fa770-5b10-478b-97b4-0dabb17138fe"><span>移动端(切图)</span>
+              </div>
+              <div class="nbNotebook" title="跨终端web" guid="c5dc71bc-63ec-418c-bf73-a323be00a704"><span>跨终端web</span>
+              </div>
+              <div class="nbNotebook" title="高性能javascript" guid="d9c734f9-2eb7-4259-84c6-9497583405f8"><span>高性能javascript</span>
+              </div>
+              <div class="nbNotebook" title="高性能网站建设指南(前端篇)" guid="a50b0d1e-dcbb-49d4-ab81-040646e3207f"><span>高性能网站建设指南(前端篇)</span>
+              </div>
+              <div class="nbNotebook" title="高性能网站进阶指南" guid="6fc37576-4be2-4f7f-a631-56df1f8ec121">
+                <span>高性能网站进阶指南</span></div>
+            </div>
+            <div class="nbStack"><h3 title="GitHub Page Blog">GitHub Page Blog</h3>
+              <div class="nbNotebook" title="javascript-docs" guid="09b0698f-a9da-4c55-b09d-34c0ce04d773"><span>javascript-docs</span>
+              </div>
+            </div>
+            <div class="nbNotebook" title="jetBrain" guid="2daf10da-e701-49c7-a84e-1d8b28a229b5"><span>jetBrain</span>
+            </div>
+            <div class="nbStack"><h3 title="Linux">Linux</h3>
+              <div class="nbNotebook" title="Linux Docs" guid="37d89ac3-2bca-47eb-a592-8d0fad721a46">
+                <span>Linux Docs</span></div>
+              <div class="nbNotebook" title="Linux Shell脚本攻略（第2版）" guid="199c2046-b078-4d76-91b1-c936b0c89465"><span>Linux Shell脚本攻略（第2版）</span>
+              </div>
+              <div class="nbNotebook" title="Shell 编程" guid="7720c246-7993-4228-82b5-f7109cf6ada9"><span>Shell 编程</span>
+              </div>
+              <div class="nbNotebook" title="unix/linux系统管理技术手册" guid="c0039158-66be-4e88-8fe4-d76f7797b7a4"><span>unix/linux系统管理技术手册</span>
+              </div>
+            </div>
+            <div class="nbStack"><h3 title="web share">web share</h3>
+              <div class="nbNotebook" title="Default Web Clip" guid="183879ba-edb7-486f-a39f-443e60debb49"><span>Default Web Clip</span>
+              </div>
+              <div class="nbNotebook" title="Good Blogs" guid="4d4d0a19-9a3f-44ee-8db2-2f8d7f228b29">
+                <span>Good Blogs</span></div>
+              <div class="nbNotebook" title="Web Clip" guid="9296fd7f-40f7-4e9b-ad02-8fa2573c4f5b"><span>Web Clip</span>
+              </div>
+              <div class="nbNotebook" title="微信" guid="b8db7440-a177-4f6f-9fd5-58f3a0453402"><span>微信</span></div>
+            </div>
+            <div class="nbStack"><h3 title="前端框架篇">前端框架篇</h3>
+              <div class="nbNotebook" title="AngularJS权威教程" guid="9d9d12b1-137e-4e70-8de4-6028adf34102"><span>AngularJS权威教程</span>
+              </div>
+              <div class="nbNotebook" title="Bootstrap实战" guid="1c851dd9-5dcf-42df-8779-c3e24665c6b4">
+                <span>Bootstrap实战</span></div>
+              <div class="nbNotebook" title="Bootstrap源码解读" guid="45e95351-85d5-4517-bc26-e37cd39a55e8"><span>Bootstrap源码解读</span>
+              </div>
+              <div class="nbNotebook" title="JavaScript网页动画设计" guid="a20b7bb0-2a76-4729-ba80-0fcd30251a71"><span>JavaScript网页动画设计</span>
+              </div>
+              <div class="nbNotebook" title="jQuery基础教程（第4版）" guid="ffa1bca0-519d-45ff-9b7f-088e7fccec1b"><span>jQuery基础教程（第4版）</span>
+              </div>
+              <div class="nbNotebook" title="jQuery好文分享" guid="3c804df0-a615-4ada-a9ad-dbb9561fc707">
+                <span>jQuery好文分享</span></div>
+              <div class="nbNotebook" title="jQuery源码分析系列(1.7.1)" guid="f94aa15d-e337-487f-8210-2344d9bf7f38"><span>jQuery源码分析系列(1.7.1)</span>
+              </div>
+              <div class="nbNotebook" title="React Navive 入门与实践" guid="f8c374a1-6da9-4258-aa2f-0b1d311902f0"><span>React Navive 入门与实践</span>
+              </div>
+              <div class="nbNotebook" title="React笔记" guid="958c18cd-de15-44f7-8637-e534fc285d1b"><span>React笔记</span>
+              </div>
+              <div class="nbNotebook" title="基于MVC的javascript web富应用开发" guid="4209e972-c74b-4e9f-b53b-a564ea98d6a5">
+                <span>基于MVC的javascript web富应用开发</span></div>
+              <div class="nbNotebook" title="深入理解bootstrap" guid="f8f635ab-d393-433f-ba2c-0a2c4f43049e"><span>深入理解bootstrap</span>
+              </div>
+              <div class="nbNotebook" title="用AngularJs开发下一代web应用" guid="19b4f0c9-1082-4631-8ded-988bf3baee29"><span>用AngularJs开发下一代web应用</span>
+              </div>
+            </div>
+            <div class="nbStack"><h3 title="工具类">工具类</h3>
+              <div class="nbNotebook" title="Atom" guid="4a35d994-0ea8-4255-87e7-63fc9804fc45"><span>Atom</span></div>
+              <div class="nbNotebook" title="Evernote" guid="d5910b74-0a33-4014-acda-a7833a140d11"><span>Evernote</span>
+              </div>
+              <div class="nbNotebook" title="Git&amp;Github&amp;SVN" guid="2266776f-0f16-428f-a47f-14a899c4e17f"><span>Git&amp;Github&amp;SVN</span>
+              </div>
+              <div class="nbNotebook" title="Github" guid="bf3eafdb-0280-4544-98de-372b7e1cb0cd"><span>Github</span>
+              </div>
+              <div class="nbNotebook" title="vscode" guid="835255bc-6f56-4bde-8dd8-627c3f5f4214"><span>vscode</span>
+              </div>
+            </div>
+            <div class="nbStack"><h3 title="项目管理&amp;设计篇">项目管理&amp;设计篇</h3>
+              <div class="nbNotebook" title="图解网站分析（修订版）：让流量倍增的网站优化方法" guid="52ab059d-09a5-44ab-b903-3712292a413e">
+                <span>图解网站分析（修订版）：让流量倍增的网站优化方法</span></div>
+              <div class="nbNotebook" title="项目百态：软件项目管理面面观（修订版）" guid="72f6d526-9b13-4d80-bdbf-6c0e6708be1e"><span>项目百态：软件项目管理面面观（修订版）</span>
+              </div>
+            </div>
+          </div>
+          <div class="nbRefreshNotebooksInfoBlock">
+            <hr class="nbRefreshNotebooksLine">
+            <span class="nbRefreshNotebooksInfo">无法找到？</span>
+            <div class="nbRefreshNotebooksInfoBlockIcon useSvg"></div>
+            <span class="nbRefreshNotebooksRefresh">刷新列表</span></div>
+        </div>
+        <div class="nbInputFocuser" tabindex="1"></div>
+    </div>
+    <div id="tags"></div>
+    <textarea id="comments" rows="1" tabindex="4" placeholder="添加注释"></textarea>
+  </section>
+  <section id="account">
+    <hr/>
+    <div id="settings" message="options_title"></div>
+    <div id="sso" message="signInToBusiness"></div>
+  </section>
+</div>
+</body>
+</html>
