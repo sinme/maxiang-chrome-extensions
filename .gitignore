@@ -113,7 +113,6 @@ temp/
 # project specific #
 ####################
 /components
-/node_modules
 /output
 .npm
 .grunt
